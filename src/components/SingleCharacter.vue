@@ -3,11 +3,11 @@
     export default{
         name: 'SingleCharacter',
         props: {
-            'name' : String,
-            'img' : String,
-            'status' : String,
-            'species': String,
-            'id': Number, 
+            name : String,
+            img : String,
+            status : String,
+            species: String,
+            id : Number, 
         },
     }   
 </script>
@@ -21,6 +21,10 @@
     </div>
 </template>
 
-<style>
-
+<style lang="scss">
+    .person{
+        width:50px;
+        height:100px;
+        border: 1px solid #fff;
+    }
 </style>

@@ -1,13 +1,12 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import Characters from './components/Characters.vue';
-import SingleCharacter from './components/SingleCharacter.vue';
-import store from './store.js';
+import {store} from './store.js';
+import axios from 'axios';
 
 export default{
   components: {
     Characters,
-    SingleCharacter,
     AppHeader
   },
   data(){
@@ -17,24 +16,22 @@ export default{
   },
   methods: {
         getCharacters(){
-            axios
-            .get(store.apiURL)
-            .then((res) => {
-                store.charactersList= res.data.results;
-            })
-            .catch(err => {
-                console.log('errori', err);
-            })
-        },
-        mounted(){
-            this.getCharacters();
+          axios.get(store.apiURL).then(res =>{
+            store.charactersList= res.data.results;
+            console.log(store.charactersList);
+          }).catch(err =>{
+            console.log('errori', err);
+          });
         }
+    },
+    mounted(){
+      this.getCharacters();
     }
 }
 </script>
 
 <template>
-  <AppHeader/>
+  <AppHeader :msg= "store.titolo"/>
   <Characters/>
 </template>
 
