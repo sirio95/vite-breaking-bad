@@ -12,7 +12,7 @@
     <h1>{{ msg }}</h1>
 </template>
 
-<style>
+<style lang="scss">
 
 
 </style>
